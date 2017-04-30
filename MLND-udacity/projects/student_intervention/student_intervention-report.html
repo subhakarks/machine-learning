@@ -11785,7 +11785,8 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong>
 This is a typical Classification supervised learning problem. We are predicting a binary outcome, to intervene or not to
-intervene with students who are likely to fail. That is to predicts whether or not a student graduates.What we are predicting is a discrete outcome, which is independent of each student and is random in nature without any order. Classification suites best in predicting this kind of outcomes.</p>
+intervene with students who are likely to fail. That is to predicts whether or not a student graduates.What we are predicting is a discrete outcome, which is independent of each student and is random in nature without any order. Classification suites best in predicting this kind of outcomes.
+<img src="https://udacity-github-sync-content.s3.amazonaws.com/_imgs/601/1459954777/Screen_Shot_2016-04-06_at_10.56.52_PM.png" alt="Screen_Shot_2016-04-06_at_10.56.52_PM.png"></p>
 
 </div>
 </div>
@@ -11802,7 +11803,7 @@ intervene with students who are likely to fail. That is to predicts whether or n
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Import libraries</span>
@@ -11894,7 +11895,7 @@ Student data read successfully!
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">division</span>
@@ -11959,7 +11960,7 @@ Graduation rate of the class: 67.09%
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Extract feature columns</span>
@@ -12052,7 +12053,7 @@ Name: passed, dtype: object
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">preprocess_features</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
@@ -12284,7 +12285,7 @@ Name: passed, dtype: object
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Import any additional functionality you may need here</span>
@@ -12437,7 +12438,7 @@ in this kind of scenarios.</li>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">train_classifier</span><span class="p">(</span><span class="n">clf</span><span class="p">,</span> <span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">):</span>
@@ -12510,7 +12511,7 @@ in this kind of scenarios.</li>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Import the three supervised learning models from sklearn</span>
@@ -12542,68 +12543,68 @@ in this kind of scenarios.</li>
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Training a DecisionTreeClassifier using a training set size of 100. . .
-Trained model in 0.0012 seconds
-Made predictions in 0.0004 seconds.
+Trained model in 0.0015 seconds
+Made predictions in 0.0003 seconds.
 F1 score for training set: 1.0000.
-Made predictions in 0.0004 seconds.
+Made predictions in 0.0003 seconds.
 F1 score for test set: 0.6050.
 --------------------------------------------------------------------------------
 Training a DecisionTreeClassifier using a training set size of 200. . .
-Trained model in 0.0016 seconds
+Trained model in 0.0023 seconds
 Made predictions in 0.0005 seconds.
 F1 score for training set: 1.0000.
-Made predictions in 0.0003 seconds.
+Made predictions in 0.0004 seconds.
 F1 score for test set: 0.6393.
 --------------------------------------------------------------------------------
 Training a DecisionTreeClassifier using a training set size of 300. . .
-Trained model in 0.0022 seconds
+Trained model in 0.0028 seconds
 Made predictions in 0.0005 seconds.
 F1 score for training set: 1.0000.
-Made predictions in 0.0005 seconds.
+Made predictions in 0.0004 seconds.
 F1 score for test set: 0.7391.
 --------------------------------------------------------------------------------
 ================================================================================
 Training a GaussianNB using a training set size of 100. . .
-Trained model in 0.0012 seconds
-Made predictions in 0.0005 seconds.
+Trained model in 0.0011 seconds
+Made predictions in 0.0006 seconds.
 F1 score for training set: 0.7966.
-Made predictions in 0.0004 seconds.
+Made predictions in 0.0006 seconds.
 F1 score for test set: 0.6379.
 --------------------------------------------------------------------------------
 Training a GaussianNB using a training set size of 200. . .
-Trained model in 0.0013 seconds
-Made predictions in 0.0007 seconds.
+Trained model in 0.0012 seconds
+Made predictions in 0.0006 seconds.
 F1 score for training set: 0.8148.
 Made predictions in 0.0006 seconds.
 F1 score for test set: 0.7344.
 --------------------------------------------------------------------------------
 Training a GaussianNB using a training set size of 300. . .
-Trained model in 0.0016 seconds
+Trained model in 0.0017 seconds
 Made predictions in 0.0008 seconds.
 F1 score for training set: 0.8190.
-Made predictions in 0.0007 seconds.
+Made predictions in 0.0018 seconds.
 F1 score for test set: 0.7500.
 --------------------------------------------------------------------------------
 ================================================================================
 Training a SVC using a training set size of 100. . .
-Trained model in 0.0015 seconds
-Made predictions in 0.0018 seconds.
+Trained model in 0.0026 seconds
+Made predictions in 0.0022 seconds.
 F1 score for training set: 0.8707.
-Made predictions in 0.0012 seconds.
+Made predictions in 0.0016 seconds.
 F1 score for test set: 0.8000.
 --------------------------------------------------------------------------------
 Training a SVC using a training set size of 200. . .
-Trained model in 0.0037 seconds
-Made predictions in 0.0028 seconds.
+Trained model in 0.0050 seconds
+Made predictions in 0.0041 seconds.
 F1 score for training set: 0.8491.
-Made predictions in 0.0015 seconds.
+Made predictions in 0.0024 seconds.
 F1 score for test set: 0.8026.
 --------------------------------------------------------------------------------
 Training a SVC using a training set size of 300. . .
-Trained model in 0.0072 seconds
-Made predictions in 0.0048 seconds.
+Trained model in 0.0113 seconds
+Made predictions in 0.0084 seconds.
 F1 score for training set: 0.8701.
-Made predictions in 0.0019 seconds.
+Made predictions in 0.0026 seconds.
 F1 score for test set: 0.8026.
 --------------------------------------------------------------------------------
 ================================================================================
@@ -12828,7 +12829,7 @@ surface and then convert back the decision surface into non-linear decision boun
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># TODO: Import &#39;GridSearchCV&#39; and &#39;make_scorer&#39;</span>
@@ -12874,9 +12875,9 @@ surface and then convert back the decision surface into non-linear decision boun
 
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Made predictions in 0.0030 seconds.
+<pre>Made predictions in 0.0046 seconds.
 Tuned model has a training F1 score of 0.8510.
-Made predictions in 0.0013 seconds.
+Made predictions in 0.0018 seconds.
 Tuned model has a testing F1 score of 0.7763.
 </pre>
 </div>
