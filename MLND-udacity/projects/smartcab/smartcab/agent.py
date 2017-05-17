@@ -96,6 +96,7 @@ class LearningAgent(Agent):
         self.state = state
         self.next_waypoint = self.planner.next_waypoint()
         action = None
+        random.seed()
 
         ########### 
         ## TO DO ##
@@ -103,6 +104,8 @@ class LearningAgent(Agent):
         # When not learning, choose a random action
         # When learning, choose a random action with 'epsilon' probability
         #   Otherwise, choose an action with the highest Q-value for the current state
+        if not self.learning:
+            action = random.choice(self.valid_actions)
  
         return action
 
@@ -159,7 +162,8 @@ def run():
     # Follow the driving agent
     # Flags:
     #   enforce_deadline - set to True to enforce a deadline metric
-    env.set_primary_agent(agent)
+    env.set_primary_agent(agent,
+                          enforce_deadline=True)
 
     ##############
     # Create the simulation
@@ -168,7 +172,9 @@ def run():
     #   display      - set to False to disable the GUI if PyGame is enabled
     #   log_metrics  - set to True to log trial and simulation results to /logs
     #   optimized    - set to True to change the default log file name
-    sim = Simulator(env)
+    sim = Simulator(env,
+                    update_delay=0.01,
+                    log_metrics=True)
     
     ##############
     # Run the simulator
