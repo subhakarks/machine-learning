@@ -22,8 +22,8 @@ class LearningAgent(Agent):
         ###########
         ## TO DO ##
         ###########
-        # Set any additional class parameters as needed
         self.run_number = -1
+        # Set any additional class parameters as needed
 
 
     def reset(self, destination=None, testing=False):
@@ -45,13 +45,7 @@ class LearningAgent(Agent):
             self.alpha = 0
         else:
             self.run_number += 1
-            # first version
-            #self.epsilon -= (0.05 * self.run_number)
-            #self.epsilon = math.exp(-1 * self.alpha * self.run_number)
-            if self.run_number:
-                self.epsilon = 1.0/(self.run_number ** 2)
-            #self.epsilon = self.alpha ** self.run_number
-            #self.epsilon = math.cos(self.alpha * self.run_number)
+            self.epsilon -= 0.05
 
         return None
 
@@ -73,10 +67,12 @@ class LearningAgent(Agent):
 
         return state
 
+
     def get_maxQ(self, state):
         """ The get_max_Q function is called when the agent is asked to find the
             maximum Q-value of all actions based on the 'state' the smartcab is in. """
-        ###########
+
+        ########### 
         ## TO DO ##
         ###########
         # Calculate the maximum Q-value of all actions for a given state
@@ -130,7 +126,9 @@ class LearningAgent(Agent):
         # Set the agent state and default action
         self.state = state
         self.next_waypoint = self.planner.next_waypoint()
-        ###########
+
+
+        ########### 
         ## TO DO ##
         ###########
         # When not learning, choose a random action
@@ -142,7 +140,6 @@ class LearningAgent(Agent):
         else:
             possible_actions = self.valid_actions if random.random() < self.epsilon else self.get_maxQ_actions(state)
             action = random.choice(possible_actions)
-
         return action
 
 
@@ -196,8 +193,6 @@ def run():
     #    * alpha   - continuous value for the learning rate, default is 0.5
     kwargs = {
         'learning': True,
-        'alpha': 0.5,
-        'epsilon':1.0,
     }
     agent = env.create_agent(LearningAgent, kwargs)
     
@@ -218,17 +213,16 @@ def run():
     sim = Simulator(env,
                     update_delay=0.01,
                     display=True,
-                    log_metrics=True,
-                    optimized=True)
+                    log_metrics=True)
     
     ##############
     # Run the simulator
     # Flags:
     #   tolerance  - epsilon tolerance before beginning testing, default is 0.05 
     #   n_test     - discrete number of testing trials to perform, default is 0
-    sim.run(n_test=10,
-            tolerance=0.0003)
+    sim.run(n_test=10)
 
 
 if __name__ == '__main__':
     run()
+
