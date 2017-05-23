@@ -243,6 +243,7 @@ class Simulator(object):
 
             self.log_file.close()
 
+        print "\nTotal Training Trails = %d" %(total_trials - trial)
         print "\nSimulation ended. . . "
 
         # Report final metrics

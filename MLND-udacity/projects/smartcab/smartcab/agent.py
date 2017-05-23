@@ -1,5 +1,5 @@
 import random
-import math
+from math import exp, fabs, cos
 from environment import Agent, Environment
 from planner import RoutePlanner
 from simulator import Simulator
@@ -22,8 +22,8 @@ class LearningAgent(Agent):
         ###########
         ## TO DO ##
         ###########
-        self.run_number = -1
         # Set any additional class parameters as needed
+        self.run_number = -1
 
 
     def reset(self, destination=None, testing=False):
@@ -45,7 +45,13 @@ class LearningAgent(Agent):
             self.alpha = 0
         else:
             self.run_number += 1
-            self.epsilon -= 0.05
+            #self.epsilon -= 0.05  default q-learning
+            #self.epsilon = exp(-1 * self.alpha * self.run_number)
+            #if self.run_number:
+            #    self.epsilon = fabs(1.0 / (self.run_number ** 2))
+            #self.epsilon = self.alpha ** self.run_number
+            self.epsilon = fabs(cos(self.alpha * self.run_number))
+            #self.epsilon = -1 * self.alpha * exp(-1 * exp(-1 * self.run_number))
 
         return None
 
@@ -127,8 +133,7 @@ class LearningAgent(Agent):
         self.state = state
         self.next_waypoint = self.planner.next_waypoint()
 
-
-        ########### 
+        ###########
         ## TO DO ##
         ###########
         # When not learning, choose a random action
@@ -193,6 +198,8 @@ def run():
     #    * alpha   - continuous value for the learning rate, default is 0.5
     kwargs = {
         'learning': True,
+        'alpha':0.001,
+        'epsilon':1.0,
     }
     agent = env.create_agent(LearningAgent, kwargs)
     
@@ -212,15 +219,18 @@ def run():
     #   optimized    - set to True to change the default log file name
     sim = Simulator(env,
                     update_delay=0.01,
-                    display=True,
-                    log_metrics=True)
+                    display=False,
+                    log_metrics=True,
+                    optimized=True)
     
     ##############
     # Run the simulator
     # Flags:
     #   tolerance  - epsilon tolerance before beginning testing, default is 0.05 
     #   n_test     - discrete number of testing trials to perform, default is 0
-    sim.run(n_test=10)
+    sim.run(n_test=18,
+            tolerance=0.0001)
+
 
 
 if __name__ == '__main__':
